@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Show AR</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; background: #ffffff; font-family: sans-serif; }
+    model-viewer { display: block; width: 100vw; height: 100vh; }
+    /* The AR button — restyle this however you like */
+    .ar-button {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      padding: 14px 28px; border: none; border-radius: 999px;
+      background: #000; color: #fff; font-size: 16px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    src              = your model file's exact name (must match, including capitals)
+    ar               = turns on AR on phones
+    ar-placement     = "floor" or "wall" — where the logo sits in the room
+    camera-controls  = lets people spin the logo on screen before opening AR
+  -->
+  <model-viewer
+    src="logo.glb"
+    ios-src="logo.usdz"
+    alt="3D logo"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="floor"
+    ar-scale="auto"
+    camera-controls
+    autoplay
+    shadow-intensity="1">
+    <button slot="ar-button" class="ar-button">View in your space</button>
+  </model-viewer>
+</body>
+</html>
